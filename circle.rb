@@ -20,4 +20,18 @@ class Circle
   def valid?(argument, object_type)
     if argument.nil? and not id.instance_of?(object_type)
   end
+
+  def is_full?
+    members.count >= 29
+  end
+
+  def join(member)
+    raise ArgumentError.new('不正な引数値') if member.nil? or not member.instance_of?(User)
+
+    if self.is_full?
+      raise StandardError.new('メンバー数の上限を超えています')
+    end
+
+    members.append(member)
+  end
 end
