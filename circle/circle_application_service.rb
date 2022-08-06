@@ -52,12 +52,7 @@ class CircleApplicationService
         raise StandardError.new('サークルが見つかりませんでした')
       end
 
-      # サークルのオーナーを含めて30人以内か確認
-      if circle.members.count >= 29
-        raise StandardError.new(id)
-      end
-
-      circle.members.append(member)
+      circle.join(member)
       @circle_repository.save(circle)
     end
   end
