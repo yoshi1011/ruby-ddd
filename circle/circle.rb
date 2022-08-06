@@ -1,6 +1,6 @@
 class Circle
   # サークルエンティティ
-  attr_reader :id, name, owner, members
+  attr_reader :id, :name, :owner, :members
 
   def initialize(id, name, owner, members)
     raise ArgumentError.new('値がありません') if valid?(id, CircleId)

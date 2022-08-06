@@ -1,5 +1,5 @@
 class CircleService
-  attr_reader :circle_repository
+  private attr_reader :circle_repository
 
   def initialize(circle_repository)
     raise ArgumentError.new("引数がICircleRepositoryを継承していない") unless circle_repository.class.ancestors.include?(ICircleRepository)

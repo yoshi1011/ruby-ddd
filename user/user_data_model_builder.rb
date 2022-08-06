@@ -1,5 +1,4 @@
 class UserDataModelBuilder < IUserNotification
-  attr_reader :id, :user_id
 
   def id(id)
     raise ArgumentError.new('UserIdでない') unless id.instance_of?(UserId)

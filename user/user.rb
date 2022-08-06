@@ -1,9 +1,11 @@
-class User
-  attr_reader :id
-  attr_reader :name
+require_relative './user_name'
 
-  def initialize(name)
+class User
+  private attr_reader :id
+
+  def initialize(id, name)
     raise ArgumentError.new('UserNameのインスタンスではない') unless name.instance_of?(UserName)
+    @id = id
     @name = name
   end
 
@@ -17,8 +19,8 @@ class User
   def notify(note)
     raise ArgumentError.new("引数がIUserNotificationを継承していない") unless note.class.ancestors.include?(IUserNotification)
     {
-      note.id(@id),
-      note.name(@name)
+      id: note.id(@id),
+      name: note.name(@name)
     }
   end
 end

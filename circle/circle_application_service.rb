@@ -1,7 +1,8 @@
 require 'pstore'
 
 class CircleApplicationService
-  attr_reader :circle_factory, :circle_repository, :circle_service, :user_repository
+  private attr_reader :circle_factory, :circle_repository,
+                      :circle_service, :user_repository
 
   def initialize(circle_factory, circle_repository, circle_service, user_repository)
     @circle_factory = circle_factory
